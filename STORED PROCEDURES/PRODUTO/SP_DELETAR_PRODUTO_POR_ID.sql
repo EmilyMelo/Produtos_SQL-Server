@@ -1,0 +1,13 @@
+/*Criando procedimento para deletar os dados da tabela tb_Produtos através do ID*/
+IF EXISTS (SELECT TOP 1 1 FROM SYS.OBJECTS WHERE TYPE = 'P' AND NAME = 'SP_DELETAR_PRODUTO_POR_ID')
+DROP PROCEDURE SP_DELETAR_PRODUTO_POR_ID
+GO
+
+CREATE PROCEDURE SP_DELETAR_PRODUTO_POR_ID (@idProduto INT)
+
+AS
+
+BEGIN
+	DELETE FROM tb_Produtos
+	WHERE idProduto = @idProduto
+END
